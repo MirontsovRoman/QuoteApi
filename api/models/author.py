@@ -6,13 +6,8 @@ class AuthorModel(db.Model):
     name = db.Column(db.String(32))
     # Один из вариантов решения для каскадного удаления, связанных с автором цитат.
     quotes = db.relationship('QuoteModel', backref='author', lazy='dynamic', cascade='all, delete')
-    # quotes = db.relationship('QuoteModel', backref='author', lazy='dynamic')
-
+    
     def __init__(self, name):
         self.name = name
 
-    # def to_dict(self):
-    #     return {
-    #         "id": self.id,
-    #         "name": self.name
-    #     }
+ 
